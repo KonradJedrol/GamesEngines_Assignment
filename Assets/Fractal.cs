@@ -12,7 +12,7 @@ public class Fractal : MonoBehaviour {
     public float maxSpeed;
     private float rotSpeed;
     public float maxTwist;
-    public float justTime;
+    public float spawnDelay;
 
     private static Vector3[] spawnDirection =
     {
@@ -55,6 +55,7 @@ public class Fractal : MonoBehaviour {
 
     }
 
+
     // Use this for initialization
     void Start ()
     {
@@ -82,7 +83,7 @@ public class Fractal : MonoBehaviour {
         {
             if (Random.value < spawnChance)
             {
-                yield return new WaitForSeconds(justTime);
+                yield return new WaitForSeconds(spawnDelay);
                 new GameObject("child").AddComponent<Fractal>().
                     Initialization(this, i);
             }
